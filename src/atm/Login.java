@@ -9,34 +9,34 @@ import java.util.*;
 
 /**
  *
- * @author Nade97
+ * @author
  */
 public class Login {
 
-    private ArrayList<Nasabah> login;
+    private ArrayList<Customer> login;
     private int idx = -1;
 
     public Login() {
-        this.login = new ArrayList<Nasabah>();
+        this.login = new ArrayList<Customer>();
     }
 
-    public void getAll(ArrayList<Nasabah> list) {
+    public void getAll(ArrayList<Customer> list) {
         this.login = list;
-        this.login = (ArrayList<Nasabah>) list.clone();
+        this.login = (ArrayList<Customer>) list.clone();
     }
 
     public boolean login(String user, int pass) {
         boolean log = false;
 
         for (int i = 0; i < login.size(); i++) {
-            Nasabah n = login.get(i);
+            Customer n = login.get(i);
 
-            if (user.equals(n.getUser()) && pass == n.getPassword()) {
+            if (user.equals(n.getUserId()) && pass == n.getPassword()) {
                 log = true;
                 idx = i;
                 break;
             } else {
-                System.out.println("USERNAME DAN PASSWORD SALAH!");
+                System.out.println("\n" + "WRONG USERNAME AND PASSWORD!");
                 idx = -1;
             }
 

@@ -9,41 +9,42 @@ import java.util.*;
 
 /**
  *
- * @author Nade97
+ * @author Shubham
  */
 public class ATM {
 
     static boolean log = false;
     static Scanner key = new Scanner(System.in);
-    static BukaRekening br = new BukaRekening();
+    static OpenAccount br = new OpenAccount();
     static Login login = new Login();
-    static Transaksi tr = new Transaksi();
+    static Transaction tr = new Transaction();
 
     public static void main(String[] args) {
 
         int r = 0;
-        int pilihan = 0;
+        int option = 0;
         int idx = -1;
 
+        try{
         while (true) {
-            System.out.println("\t\tSELAMAT DATANG DI MENU LAYANAN");
-            System.out.println("\t\t\tBANK PT.MAJU JALAN");
-            System.out.println("PILIH LAYANAN");
-            System.out.println("1. Buka Rekening");
+            System.out.println("\t\tWELCOME TO THE SERVICE MENU");
+            System.out.println("\t\t\tBANK Of MANIT");
+            System.out.println("SELECT A SERVICE");
+            System.out.println("1. Open Account");
             System.out.println("2. Login");
-            System.out.println("3. Keluar");
-            System.out.print("Masukan Pilihan: ");
-            pilihan = key.nextInt();
+            System.out.println("3. Exit");
+            System.out.print("Enter Options: ");
+            option = key.nextInt();
 
-            switch (pilihan) {
+            switch (option) {
                 case 1:
-                    System.out.println("MENU BUKA REKENING");
+                    System.out.println("OPEN ACCOUNT MENU");
                     br.add();
-                    tr.getAll(br.getAllNasabah());
+                    tr.getAll(br.getAllCustomer());
                     break;
 
                 case 2:
-                    login.getAll(br.getAllNasabah());
+                    login.getAll(br.getAllCustomer());
                     System.out.println("MENU LOGIN");
                     System.out.print("Uername: ");
                     String user = key.next();
@@ -55,13 +56,13 @@ public class ATM {
                     tr.setIdx(login.getIdxUser());
 
                     while (log == true) {
-                        tr.menuTransaksi();
+                        tr.menuTransaction();
                     }
 
                     break;
 
                 case 3:
-                    System.out.println("Apakah Anda Ingin Keluar? y/n");
+                    System.out.println("Do You Want To Quit? y/n");
 
                     char exits = (char) key.next().charAt(0);
                     if (exits == 'y' || exits == 'Y') {
@@ -70,14 +71,17 @@ public class ATM {
                         main(args);
                     } else {
                         System.out.println("Input y/n");
-                        pilihan = 3;
+                        option = 3;
                     }
                     break;
 
                 default:
-                    System.out.println("SILAHKAN MASUKAN PILIHAN 1 - 3");
+                    System.out.println("PLEASE INDICATE YOUR CHOICES 1 - 3");
                     break;
             }
+        }}
+        catch(Exception ex){
+            System.out.println("ATM machine not working.");
         }
     }
 

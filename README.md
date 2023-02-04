@@ -1,14 +1,14 @@
 # App-ATM
 ATM java console
-Program ATM yang terdiri dari
-- Menu Utama
-1. Buka Rekening
+The ATM program consists of
+- Main menu
+1. Open Account
 2. Login
-3. Keluar
+3. Exit
 
-- Menu Layanan
-1. Cek Saldo
-2. Tarik Tunai
-3. Stor Tunai
+- Menu Login
+1. Check balance
+2. withdraw cash
+3. deposit cash
 4. Transfer
-5. Keluar
+5. logout
