@@ -7,8 +7,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class LoginTest {
     private Login login;
@@ -26,6 +25,17 @@ public class LoginTest {
         var res = login.login("s123",132);
         //Assert
         assertTrue(res);
+    }
+
+    @Test
+    public  void loginfailed_test(){
+        var customerList= new ArrayList<Customer>();
+        customerList.add(new Customer("Shubh","s143",132,300,1));
+        login.getAll(customerList);
+
+        var res = login.login("s123",132);
+        //Assert
+        assertFalse(res);
     }
 
 }
